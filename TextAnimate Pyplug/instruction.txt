@@ -1,0 +1,10 @@
+Greetings from CGVIRUS.
+To install copy the py and image file and paste in this path:
+
+Windows : C:\Program Files\INRIA\Natron-2.3.2\Plugins\PyPlugs
+
+Linux : /usr/share/Natron/Plugins
+
+Mac: /Library/Application Support/Natron/Plugins
+
+
