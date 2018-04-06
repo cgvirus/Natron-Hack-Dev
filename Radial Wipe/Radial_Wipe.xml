@@ -1,0 +1,11 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Radial_Wipe</DisplayName>
+    <Description>A Radial wipe for transition</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.RadialWipe</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
