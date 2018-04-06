@@ -1,0 +1,11 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Light_Sweep</DisplayName>
+    <Description>Creates Light Sweep</Description>
+    <Version>1.0</Version>
+    <ReleaseDate>@DATE@</ReleaseDate>
+    <Name>natron.community.plugins.LightSweep</Name>
+    <Default>script</Default>
+    <Script>installscript.qs</Script>
+</Package>
