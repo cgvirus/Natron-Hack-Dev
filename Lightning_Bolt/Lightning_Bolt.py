@@ -22,7 +22,7 @@ def getLabel():
     return "Lightning_Bolt"
 
 def getVersion():
-    return 1
+    return 2
 
 def getIconPath():
     return "bolticon.png"
@@ -63,11 +63,9 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(392, 0)
-    param.setValue(681, 1)
-
+    param.setValue(349, 0)
+    param.setValue(870, 1)
     param.setUsePointInteract(True)
-
     lastNode.rootposXY = param
     del param
 
@@ -92,12 +90,22 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(1046, 0)
-    param.setValue(253, 1)
-
+    param.setValue(1406, 0)
+    param.setValue(228, 1)
     param.setUsePointInteract(True)
-    
     lastNode.tailposXY = param
+    del param
+
+    param = lastNode.createBooleanParam("tailCnct", "Connect Tail")
+
+    # Add the param to the page
+    lastNode.Controler.addParam(param)
+
+    # Set param properties
+    param.setHelp("")
+    param.setAddNewLine(True)
+    param.setAnimationEnabled(True)
+    lastNode.tailCnct = param
     del param
 
     param = lastNode.createIntParam("Shadertoy1paramValueInt0", "Stroke Count")
@@ -133,6 +141,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(1.51, 0)
     lastNode.Shadertoy1paramValueFloat1 = param
     del param
 
@@ -169,6 +178,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(5.73, 0)
     lastNode.Shadertoy1paramValueFloat3 = param
     del param
 
@@ -187,6 +197,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(21.5, 0)
     lastNode.Shadertoy1paramValueFloat4 = param
     del param
 
@@ -205,9 +216,9 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.4220670461654663, 0)
-    param.setValue(0.1338102221488953, 1)
-    param.setValue(0.08025512844324112, 2)
+    param.setValue(1, 0)
+    param.setValue(0.3813261091709137, 1)
+    param.setValue(0.2050787061452866, 2)
     lastNode.Shadertoy1paramValueVec35 = param
     del param
 
@@ -233,6 +244,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(True)
     lastNode.flip = param
     del param
 
@@ -267,6 +279,7 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
+    param.setValue(0.1, 0)
     lastNode.Shadertoy1paramValueFloat8 = param
     del param
 
@@ -448,7 +461,6 @@ def createInstance(app,group):
     param.setHelp("")
     param.setAddNewLine(True)
     param.setAnimationEnabled(True)
-    param.setValue(0.192, 0)
     lastNode.noise_Generatorjitter = param
     del param
 
@@ -523,8 +535,9 @@ def createInstance(app,group):
     lastNode.sep4 = param
     del param
 
+    lastNode.extra_ctrl = lastNode.createPageParam("extra_ctrl", "extracontrols")
     # Refresh the GUI with the newly created parameters
-    lastNode.setPagesOrder(['Controler', 'noiseparams', 'credit', 'Node', 'Settings'])
+    lastNode.setPagesOrder(['Controler', 'noiseparams', 'credit', 'Node', 'Settings', 'extra_ctrl'])
     lastNode.refreshUserParamsGUI()
     del lastNode
 
@@ -539,14 +552,14 @@ def createInstance(app,group):
 
     param = lastNode.getParam("mousePosition")
     if param is not None:
-        param.setValue(392, 0)
-        param.setValue(681, 1)
+        param.setValue(349, 0)
+        param.setValue(870, 1)
         del param
 
     param = lastNode.getParam("mouseClick")
     if param is not None:
-        param.setValue(1046, 0)
-        param.setValue(253, 1)
+        param.setValue(1406, 0)
+        param.setValue(228, 1)
         del param
 
     param = lastNode.getParam("mousePressed")
@@ -561,7 +574,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat1")
     if param is not None:
-        param.setValue(0.83, 0)
+        param.setValue(1.51, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat2")
@@ -571,24 +584,24 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat3")
     if param is not None:
-        param.setValue(5, 0)
+        param.setValue(5.73, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat4")
     if param is not None:
-        param.setValue(8.5, 0)
+        param.setValue(21.5, 0)
         del param
 
     param = lastNode.getParam("paramValueVec35")
     if param is not None:
-        param.setValue(0.4220670461654663, 0)
-        param.setValue(0.1338102221488953, 1)
-        param.setValue(0.08025512844324112, 2)
+        param.setValue(1, 0)
+        param.setValue(0.3813261091709137, 1)
+        param.setValue(0.2050787061452866, 2)
         del param
 
     param = lastNode.getParam("paramValueInt6")
     if param is not None:
-        param.setValue(0, 0)
+        param.setValue(1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat7")
@@ -598,7 +611,7 @@ def createInstance(app,group):
 
     param = lastNode.getParam("paramValueFloat8")
     if param is not None:
-        param.setValue(0.5, 0)
+        param.setValue(0.1, 0)
         del param
 
     param = lastNode.getParam("paramValueFloat9")
@@ -945,7 +958,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.SeNoise", 1, group)
     lastNode.setScriptName("noise_Generator")
     lastNode.setLabel("noise_Generator")
-    lastNode.setPosition(522, 202)
+    lastNode.setPosition(328, 49)
     lastNode.setSize(80, 55)
     lastNode.setColor(0.75, 0.75, 0.75)
     groupnoise_Generator = lastNode
@@ -955,9 +968,25 @@ def createInstance(app,group):
         param.setValue(False)
         del param
 
+    param = lastNode.getParam("noiseSize")
+    if param is not None:
+        param.setValue(350, 0)
+        param.setValue(350, 1)
+        del param
+
+    param = lastNode.getParam("noiseZ")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
     param = lastNode.getParam("noiseZSlope")
     if param is not None:
         param.setValue(1, 0)
+        del param
+
+    param = lastNode.getParam("noiseType")
+    if param is not None:
+        param.set("fbm")
         del param
 
     param = lastNode.getParam("voronoiType")
@@ -967,12 +996,27 @@ def createInstance(app,group):
 
     param = lastNode.getParam("jitter")
     if param is not None:
-        param.setValue(0.192, 0)
+        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("fbmScale")
     if param is not None:
         param.setValue(0.2, 0)
+        del param
+
+    param = lastNode.getParam("fbmOctaves")
+    if param is not None:
+        param.setValue(6, 0)
+        del param
+
+    param = lastNode.getParam("fbmLacunarity")
+    if param is not None:
+        param.setValue(2, 0)
+        del param
+
+    param = lastNode.getParam("fbmGain")
+    if param is not None:
+        param.setValue(0.5, 0)
         del param
 
     param = lastNode.getParam("transformCenterChanged")
@@ -1103,7 +1147,7 @@ def createInstance(app,group):
     lastNode = app.createNode("net.sf.openfx.ConstantPlugin", 1, group)
     lastNode.setScriptName("Constant1")
     lastNode.setLabel("Constant1")
-    lastNode.setPosition(510, 134)
+    lastNode.setPosition(126, 60)
     lastNode.setSize(104, 32)
     lastNode.setColor(0.3, 0.5, 0.2)
     groupConstant1 = lastNode
@@ -1116,15 +1160,98 @@ def createInstance(app,group):
     del lastNode
     # End of node "Constant1"
 
+    # Start of node "Merge3"
+    lastNode = app.createNode("net.sf.openfx.MergePlugin", 1, group)
+    lastNode.setScriptName("Merge3")
+    lastNode.setLabel("Merge3")
+    lastNode.setPosition(689, 155)
+    lastNode.setSize(104, 55)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupMerge3 = lastNode
+
+    param = lastNode.getParam("operation")
+    if param is not None:
+        param.set("min")
+        del param
+
+    del lastNode
+    # End of node "Merge3"
+
+    # Start of node "Switch1"
+    lastNode = app.createNode("net.sf.openfx.switchPlugin", 1, group)
+    lastNode.setScriptName("Switch1")
+    lastNode.setLabel("Switch1")
+    lastNode.setPosition(510, 282)
+    lastNode.setSize(104, 32)
+    lastNode.setColor(0.3, 0.37, 0.776)
+    groupSwitch1 = lastNode
+
+    param = lastNode.getParam("which")
+    if param is not None:
+        param.setValue(0, 0)
+        del param
+
+    del lastNode
+    # End of node "Switch1"
+
+    # Start of node "limitter"
+    lastNode = app.createNode("net.sf.openfx.Ramp", 2, group)
+    lastNode.setScriptName("limitter")
+    lastNode.setLabel("limitter")
+    lastNode.setPosition(689, 88)
+    lastNode.setSize(104, 32)
+    lastNode.setColor(0.3, 0.5, 0.2)
+    grouplimitter = lastNode
+
+    param = lastNode.getParam("point0")
+    if param is not None:
+        param.setValue(1406, 0)
+        param.setValue(228, 1)
+        del param
+
+    param = lastNode.getParam("color0")
+    if param is not None:
+        param.setValue(0.12, 0)
+        param.setValue(0.12, 1)
+        param.setValue(0.12, 2)
+        param.setValue(0.12, 3)
+        del param
+
+    param = lastNode.getParam("point1")
+    if param is not None:
+        param.setValue(349, 0)
+        param.setValue(870, 1)
+        del param
+
+    param = lastNode.getParam("color1")
+    if param is not None:
+        param.setValue(2, 0)
+        param.setValue(2, 1)
+        param.setValue(2, 2)
+        param.setValue(2, 3)
+        del param
+
+    param = lastNode.getParam("interactive")
+    if param is not None:
+        param.setValue(True)
+        del param
+
+    del lastNode
+    # End of node "limitter"
+
     # Now that all nodes are created we can connect them together, restore expressions
     groupShadertoy1.connectInput(0, groupMerge1)
     groupnoise_Generator.connectInput(0, groupConstant1)
     groupClamp1.connectInput(0, groupShadertoy1)
     groupMerge1.connectInput(0, groupBG_Cloud_Optional)
-    groupMerge1.connectInput(1, groupnoise_Generator)
+    groupMerge1.connectInput(1, groupSwitch1)
     groupMerge2.connectInput(0, groupBG)
     groupMerge2.connectInput(1, groupClamp1)
     groupOutput1.connectInput(0, groupMerge2)
+    groupMerge3.connectInput(0, grouplimitter)
+    groupMerge3.connectInput(1, groupnoise_Generator)
+    groupSwitch1.connectInput(0, groupnoise_Generator)
+    groupSwitch1.connectInput(1, groupMerge3)
 
     param = groupShadertoy1.getParam("mousePosition")
     group.getParam("rootposXY").setAsAlias(param)
@@ -1191,6 +1318,17 @@ def createInstance(app,group):
     del param
     param = groupnoise_Generator.getParam("fbmGain")
     group.getParam("noise_GeneratorfbmGain").setAsAlias(param)
+    del param
+    param = groupSwitch1.getParam("which")
+    param.setExpression("thisGroup.tailCnct.get()", False, 0)
+    del param
+    param = grouplimitter.getParam("point0")
+    param.slaveTo(group.getParam("tailposXY"), 0, 0)
+    param.slaveTo(group.getParam("tailposXY"), 1, 1)
+    del param
+    param = grouplimitter.getParam("point1")
+    param.slaveTo(group.getParam("rootposXY"), 0, 0)
+    param.slaveTo(group.getParam("rootposXY"), 1, 1)
     del param
 
     try:
