@@ -1,0 +1,1 @@
+setx path "C:\Program Files\VideoLAN\VLC\;%path%"
